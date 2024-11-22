@@ -16,3 +16,7 @@ export async function csrfFetch(url, options = {}) {
 
     return res; // Otherwise, if the response status code is lower than 400, return the response to the next promise chain
 }
+
+export function restoreCSRF() {
+    return csrfFetch('/api/csrf/restore');
+}
