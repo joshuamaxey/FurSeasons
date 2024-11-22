@@ -48,7 +48,7 @@ if (process.env.NODE_ENV === 'production') {
   router.use(express.static(path.resolve("../frontend/dist")));
 
   // Serve the frontend's index.html file at all other routes NOT starting with /api
-  router.get(/^(?!|??api).*/, (req, res) => { // The regex (regular expression) syntax here is meant to check that the route does NOT start with '/api'
+  router.get(/^(?!\/api).*/, (req, res) => { // The regex (regular expression) syntax here is meant to check that the route does NOT start with '/api'
     res.cookie('XSRF-TOKEN', req.csrfToken());
     return res.sendFile(
       path.resolve(__dirname, '../../frontend', 'dist', 'index.html')
