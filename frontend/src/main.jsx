@@ -6,6 +6,7 @@ import './index.css';
 import configureStore from './store';
 import { restoreCSRF } from './store/csrf';
 import { csrfFetch } from './store/csrf';
+import * as sessionActions from './store/session';
 
 const store = configureStore();
 
@@ -14,13 +15,14 @@ if (import.meta.env.MODE !== 'production') {
 
   window.csrfFetch = csrfFetch;
   window.store = store;
+  window.sessionActions = sessionActions;
 }
 
 if (process.env.NODE_ENV !== 'production') {
   window.store = store;
 }
 
-//^ Do we need both of these conditionals above??
+//^ There could be a scenario wehre each environment might require distinct actions. For that reason, I will keep both of these conditionals present and separate. 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

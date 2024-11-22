@@ -1,0 +1,74 @@
+/* Basic Reset: ensures all elements have no margin or padding by default. border-box ensures padding and borders are included in the elemnt's total width and height */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling: Centers the form vertically and horizontally, with a soft background color */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container Styling: Gives the form a white background, padding, rounded corners, and subtle box-shadow */
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, k0, 0, 0.1);
+    width: 300px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333333;
+    text-align: center;
+}
+
+/* Label Styling: Ensures labes are block elements and have consistent spacing */
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #666666;
+}
+
+/* Input Styling: Makes inputs full-width, padded, and gives them a border-radius for a clean look */
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Button Styling: Gives the button a blue background, white text, and a hover effect */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Error Message Styling: Styles error messages in red and centers them */
+p {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: center;
+}
