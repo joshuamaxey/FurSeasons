@@ -27,6 +27,8 @@ const restoreUserSession = () => {
     }
 }
 
+//! login, restoreUser, and logout
+
 // This is a thunk action creator which allows for asynchronous logic in action creators.
 export const login = (user) => async (dispatch) => { // our login thunk takes a 'user' object as an argument (which contains a 'credential' (username/email) and 'password')
     const { credential, password } = user; // use destructuring to extract the credential and password from the user object
@@ -47,7 +49,7 @@ export const login = (user) => async (dispatch) => { // our login thunk takes a 
 // email: demo@user.io
 // password: password
 
-//! This is a thunk action creator for restoring the user session
+// This is a thunk action creator for restoring the user session
 export const restoreUser = () => async (dispatch) => {
     const response = await csrfFetch("/api/session");
     const data = await response.json();
@@ -55,7 +57,7 @@ export const restoreUser = () => async (dispatch) => {
     return response;
 };
 
-//! test logout route for loggin out via action in the devTools
+// test logout route for loggin out via action in the devTools
 export const logout = () => async (dispatch) => {
     const response = await csrfFetch("/api/session", {
         method: "DELETE",
@@ -66,6 +68,27 @@ export const logout = () => async (dispatch) => {
 
 //* dispatch logout action from devTools:
 // window.store.dispatch(window.sessionActions.logout());
+
+//! Signup
+
+export const signup = (user) => async (dispatch) => {
+    const { username, firstName, lastName, email, password } = user;
+    const response = await csrfFetch("/api/users", {
+        method: "POST",
+        body: JSON.stringify({
+            username,
+            firstName,
+            lastName,
+            email,
+            password
+        })
+    });
+    const data = await response.json();
+    dispatch(setUser(data.user));
+    return response;
+};
+
+//! Reducer
 
 const initialState = { user: null }; // By default, our 'user' state is null (when there is no session user)
 

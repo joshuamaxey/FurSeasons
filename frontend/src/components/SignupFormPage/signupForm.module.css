@@ -1,38 +1,39 @@
-/* Basic Reset: ensures all elements have no margin or padding by default. border-box ensures padding and borders are included in the elemnt's total width and height */
+/* Basic Reset: ensures all elements have no margin or padding by default. border-box ensures padding and borders are included in the element's total width and height */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body Styling: Centers the form vertically and horizontally, with a soft background color */
-body {
+/* SignupFormContainer Styling: Centers the form vertically and horizontally, with a soft background color */
+.signupFormContainer {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f5f5f5;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100vw; /* Ensures it takes full width and height of the viewport */
 }
 
-/* Container Styling: Gives the form a white background, padding, rounded corners, and subtle box-shadow */
-form {
+/* Form Styling: Gives the form a white background, padding, rounded corners, and subtle box-shadow */
+.signupForm {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, k0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 300px;
 }
 
-h1 {
+.signupForm h1 {
     margin-bottom: 20px;
     font-size: 24px;
     color: #333333;
     text-align: center;
 }
 
-/* Label Styling: Ensures labes are block elements and have consistent spacing */
-label {
+/* Label Styling: Ensures labels are block elements and have consistent spacing */
+.signupForm label {
     display: block;
     margin-bottom: 10px;
     font-size: 14px;
@@ -40,7 +41,7 @@ label {
 }
 
 /* Input Styling: Makes inputs full-width, padded, and gives them a border-radius for a clean look */
-input {
+.signupForm input {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -50,7 +51,7 @@ input {
 }
 
 /* Button Styling: Gives the button a blue background, white text, and a hover effect */
-button {
+.signupForm button {
     width: 100%;
     padding: 10px;
     background-color: #007bff;
@@ -61,12 +62,12 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.signupForm button:hover {
     background-color: #0056b3;
 }
 
 /* Error Message Styling: Styles error messages in red and centers them */
-p {
+.signupForm p {
     color: red;
     font-size: 14px;
     margin-bottom: 20px;

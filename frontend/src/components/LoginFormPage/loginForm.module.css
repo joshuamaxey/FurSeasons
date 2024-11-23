@@ -1,0 +1,75 @@
+/* Basic Reset: ensures all elements have no margin or padding by default. border-box ensures padding and borders are included in the element's total width and height */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* LoginFormContainer Styling: Centers the form vertically and horizontally, with a soft background color */
+.loginFormContainer {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw; /* Ensures it takes full width and height of the viewport */
+}
+
+/* Form Styling: Gives the form a white background, padding, rounded corners, and subtle box-shadow */
+.loginForm {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.loginForm h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333333;
+    text-align: center;
+}
+
+/* Label Styling: Ensures labels are block elements and have consistent spacing */
+.loginForm label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #666666;
+}
+
+/* Input Styling: Makes inputs full-width, padded, and gives them a border-radius for a clean look */
+.loginForm input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Button Styling: Gives the button a blue background, white text, and a hover effect */
+.loginForm button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.loginForm button:hover {
+    background-color: #0056b3;
+}
+
+/* Error Message Styling: Styles error messages in red and centers them */
+.loginForm p {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: center;
+}
