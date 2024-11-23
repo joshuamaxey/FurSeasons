@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import * as sessionActions from './store/session';
 import { useDispatch } from "react-redux";
 import SignupFormPage from "./components/SignupFormPage/SignupFormPage";
+import Navigation from "./components/Navigation/Navigation";
 
 function Layout() {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ function Layout() {
 
   return (
     <>
+      <Navigation isLoaded={isLoaded} />
       {isLoaded && <Outlet />}
     </>
   );
