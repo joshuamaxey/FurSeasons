@@ -1,70 +1,67 @@
 .hidden {
     display: none;
-}
+  }
 
-
-/* Basic Reset */
-* {
+  /* Basic Reset */
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif
-}
+    font-family: Arial, Helvetica, sans-serif;
+  }
 
-/* Navigation Container */
-.navContainer {
+  /* Navigation Container */
+  .navContainer {
     background-color: #ffffff;
     padding: 10px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+  }
 
-/* Navigation Links */
-.navLinks {
+  /* Navigation Links */
+  .navLinks {
     list-style: none;
     display: flex;
     gap: 15px;
-    color: black;
     align-items: center;
-}
+  }
 
-.navLinks li {
+  .navItem {
     margin: 0;
-    color: black;
-}
+  }
 
-.navLink {
+  .navLink {
     text-decoration: none;
     color: #007bff;
     font-size: 16px;
-    padding: 5px;
-    color: black;
-    font-weight: bold;
+    padding: 5px 10px;
     border-radius: 5px;
-}
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
 
-.navLink:hover {
-    color: #0056b3;
-}
+  .navLink:hover {
+    background-color: #007bff;
+    color: white;
+  }
 
-/* Profile Button */
-.profileButton {
+  /* Profile Button */
+  .profileButton {
     background: none;
     border: none;
     cursor: pointer;
     font-size: 24px;
     color: #007bff;
     align-items: center;
-}
+  }
 
-.profileButton:hover {
+  .profileButton:hover {
     color: #0056b3;
-}
+  }
 
-/* Profile Dropdown */
-.profileDropdown {
+  /* Profile Dropdown */
+  .profileDropdown {
     list-style: none;
     padding: 10px;
     margin: 0;
@@ -75,25 +72,25 @@
     position: absolute;
     top: 50px;
     right: 20px;
-}
+  }
 
-.profileDropdown li {
+  .profileDropdown li {
     margin-bottom: 10px;
-}
+  }
 
-.profileDropdown li:last-child {
+  .profileDropdown li:last-child {
     margin-bottom: 0;
-}
+  }
 
-.profileDropdown button {
+  .profileDropdown button {
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
-}
+  }
 
-.profileDropdown button:hover {
+  .profileDropdown button:hover {
     background-color: #0056b3;
-}
+  }
