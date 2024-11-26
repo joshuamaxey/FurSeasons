@@ -3,7 +3,6 @@ import { csrfFetch } from "./csrf"; // This is a custom fetch function that atta
 // These are action-type constants that make it easier to define actions and help to prevent typose and syntax errors concerning actions
 const SET_USER = "session/setUser"; // This action type is used to set the user in the Redux store
 const REMOVE_USER = "session/removeUser"; // This action is used to remove the user from the Redux store
-const RESTORE_USER = "session/restoreUser";
 
 // This is an action creator that returns an action with the type SET_USER and a payload containing the user data.
 const setUser = (user) => {
@@ -19,13 +18,6 @@ const removeUser = () => {
         type: REMOVE_USER
     };
 };
-
-// This is an action creator that returns an action with type RESTORE_USER
-const restoreUserSession = () => {
-    return {
-        type: RESTORE_USER
-    }
-}
 
 //! login, restoreUser, and logout
 

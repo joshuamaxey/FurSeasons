@@ -24,13 +24,6 @@ router.get("/api/csrf/restore", (req, res) => {
 
 router.use('/api', apiRouter); // ALL routes for this entire project begin with "/api"
 
-// Add a XSRF-TOKEN cookie in development
-if (process.env.NODE_ENV !== 'production') {
-  router.get('/api/csrf/restore', (req, res) => {
-    res.cookie('XSRF-TOKEN', req.csrfToken());
-    return res.json
-  })
-}
 
 // Serve React build files in production
 if (process.env.NODE_ENV === 'production') {
@@ -54,6 +47,14 @@ if (process.env.NODE_ENV === 'production') {
       path.resolve(__dirname, '../../frontend', 'dist', 'index.html')
     );
   });
+}
+
+// Add a XSRF-TOKEN cookie in development
+if (process.env.NODE_ENV !== 'production') {
+  router.get('/api/csrf/restore', (req, res) => {
+    res.cookie('XSRF-TOKEN', req.csrfToken());
+    return res.json
+  })
 }
 
 module.exports = router;
