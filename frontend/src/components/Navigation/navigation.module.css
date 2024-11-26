@@ -1,5 +1,5 @@
 .hidden {
-    display: none; 
+    display: none;
   }
 
   /* Basic Reset */
@@ -34,6 +34,7 @@
 
   .navLink {
     text-decoration: none;
+    font-weight: bold;
     color: #007bff;
     font-size: 16px;
     padding: 5px 10px;
