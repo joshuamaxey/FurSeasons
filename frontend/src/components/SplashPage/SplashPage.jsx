@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './SplashPage.module.css'
 
 const SplashPage = () => {
