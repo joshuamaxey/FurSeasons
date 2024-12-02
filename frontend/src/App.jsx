@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import * as sessionActions from './store/session';
 import { useDispatch } from "react-redux";
 import Navigation from "./components/Navigation/Navigation";
+import SplashPage from "./components/SplashPage";
 
 function Layout() {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <h1>Welcome!</h1>
+        element: <SplashPage />
       }
     ]
   }
