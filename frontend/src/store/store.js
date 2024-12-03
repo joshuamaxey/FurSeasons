@@ -1,9 +1,11 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'; // 'compose' is a function to compose multiple store enhancers. combineReducers allows us to combine multiple reducers into a single reducer function.
 import thunk from 'redux-thunk'; // thunk middleware allows us to handle asynchronous actions in Redux
 import sessionReducer from './session'; // reducer to handle session-related state
+import spotsReducer from './spots';
 
 const rootReducer = combineReducers({ // our rootReducer combines multiple reducers into a single reducer function.
-  session: sessionReducer
+  session: sessionReducer,
+  spots: spotsReducer
 });
 
 let enhancer;
