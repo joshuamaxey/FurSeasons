@@ -1,42 +1,47 @@
 /* Spots.module.css */
 .container {
-    text-align: center;
-    margin-top: 50px;
-  }
+  text-align: center;
+  margin-top: 50px;
+}
 
-  .title {
-    font-size: 3em;
-    color: #333;
-  }
+.title {
+  font-size: 3em;
+  color: #333;
+}
 
-  .spotsGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
-    margin-top: 20px;
-    padding: 1%;
-  }
+.spotsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Maximum 4 spots per row */
+  gap: 16px;
+  margin-top: 20px;
+  padding: 1%;
+}
 
-  .spotCard {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: #fff;
-    position: relative;
-  }
+.spotCard {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  width: 100%;
+  height: 250px; /* Set a fixed height for uniform size */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-  .spotImage {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-  }
+.spotImage {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
 
-  .spotInfo {
-    padding: 8px;
-  }
+.spotInfo {
+  padding: 8px;
+  flex-grow: 1;
+}
 
-  .spotLocation,
-  .spotRating,
-  .spotPrice {
-    margin: 4px 0;
-  }
+.spotLocation,
+.spotRating,
+.spotPrice {
+  margin: 4px 0;
+}

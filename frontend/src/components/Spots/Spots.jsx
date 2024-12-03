@@ -16,7 +16,7 @@ const Spots = () => {
   }, [dispatch]);
 
   const handleTileClick = (spotId) => {
-    navigate(`api/spots/${spotId}`); // Navigate to spot details page
+    navigate(`/spots/${spotId}`); // Navigate to spot details page
   };
 
   return (
