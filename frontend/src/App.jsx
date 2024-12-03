@@ -4,6 +4,7 @@ import * as sessionActions from './store/session';
 import { useDispatch } from "react-redux";
 import Navigation from "./components/Navigation/Navigation";
 import Spots from "./components/Spots"
+import SpotDetails from "./components/SpotDetails"
 
 function Layout() {
   const dispatch = useDispatch();
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
         path: '/',
         element: <Spots />
       },
+      {
+        path: '/spots/:spotId',
+        element: <SpotDetails />
+      }
     ]
   }
 ]);

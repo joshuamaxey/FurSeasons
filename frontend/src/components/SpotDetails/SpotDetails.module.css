@@ -1,0 +1,24 @@
+/* SpotDetails.module.css */
+.container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+  }
+
+  .images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .spotImage {
+    width: 100%;
+    max-width: 200px;
+    height: 150px;
+    object-fit: cover;
+  }
+
+  .ownerInfo,
+  .reviews {
+    margin-top: 20px;
+  }
