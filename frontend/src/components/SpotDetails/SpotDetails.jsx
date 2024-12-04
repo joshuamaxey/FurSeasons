@@ -41,11 +41,13 @@ const SpotDetails = () => {
 
   return (
     <div className={styles.container}>
-      <h1>{spot.name}</h1>
-      <p>{spot.address}, {spot.city}, {spot.state}, {spot.country}</p>
-      <p>{spot.description}</p>
-      <p>Price: ${spot.price} per night</p>
-      <p>Average Rating: {spot.avgStarRating} ({spot.numReviews} reviews)</p>
+      <h1 className={styles.spotName}>{spot.name}</h1>
+      <div className={styles.address}>{spot.address}, {spot.city}, {spot.state}, {spot.country}</div>
+      <div className={styles.details}>
+        <div className={styles.description}>{spot.description}</div>
+        <div className={styles.price}>Price: ${spot.price} per night</div>
+        <div className={styles.rating}>Average Rating: {spot.avgStarRating} ({spot.numReviews} reviews)</div>
+      </div>
       <div className={styles.images}>
         {spot.SpotImages.map(image => (
           <img key={image.id} src={image.url} alt={`Spot Image ${image.id}`} className={styles.spotImage} />
@@ -53,10 +55,6 @@ const SpotDetails = () => {
       </div>
       <div className={styles.ownerInfo}>
         <h2>Hosted by {spot.Owner.firstName} {spot.Owner.lastName}</h2>
-      </div>
-      <div className={styles.reviews}>
-        <h2>Reviews</h2>
-        {/* Render reviews here */}
       </div>
     </div>
   );

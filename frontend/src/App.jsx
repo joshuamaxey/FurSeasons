@@ -3,8 +3,11 @@ import { useState, useEffect } from "react";
 import * as sessionActions from './store/session';
 import { useDispatch } from "react-redux";
 import Navigation from "./components/Navigation/Navigation";
-import Spots from "./components/Spots"
-import SpotDetails from "./components/SpotDetails"
+import Spots from "./components/Spots";
+import SpotDetails from "./components/SpotDetails/SpotDetails";
+import CreateSpotForm from "./components/CreateSpotForm";
+import ManageSpots from "./components/ManageSpots";
+import UpdateSpot from "./components/ManageSpots/UpdateSpot";
 
 function Layout() {
   const dispatch = useDispatch();
@@ -12,7 +15,7 @@ function Layout() {
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => {
-      setIsLoaded(true)
+      setIsLoaded(true);
     });
   }, [dispatch]);
 
@@ -35,13 +38,25 @@ const router = createBrowserRouter([
       {
         path: '/spots/:spotId',
         element: <SpotDetails />
+      },
+      {
+        path: '/spots/new',
+        element: <CreateSpotForm />
+      },
+      {
+        path: '/spots/manage',
+        element: <ManageSpots />
+      },
+      {
+        path: 'spots/:spotId/edit',
+        element: <UpdateSpot />
       }
     ]
   }
 ]);
 
 function App() {
-  return <RouterProvider router={router} />
+  return <RouterProvider router={router} />;
 }
 
 export default App;

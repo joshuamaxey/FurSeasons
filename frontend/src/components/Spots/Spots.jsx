@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchSpots } from '../../store/spots'; // Adjust the import path as needed
+import { fetchSpots } from '../../store/spots';
 import styles from './Spots.module.css';
 
 const Spots = () => {

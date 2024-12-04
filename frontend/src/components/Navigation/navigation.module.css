@@ -1,97 +1,105 @@
 .hidden {
-    display: none;
-  }
+  display: none;
+}
 
-  /* Basic Reset */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-  }
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-  /* Navigation Container */
-  .navContainer {
-    background-color: #ffffff;
-    padding: 10px 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+/* Navigation Container */
+.navContainer {
+  background-color: #ffffff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  /* Navigation Links */
-  .navLinks {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-    align-items: center;
-  }
+/* Navigation Links */
+.navLinks {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
 
-  .navItem {
-    margin: 0;
-  }
+.navItem {
+  margin: 0;
+}
 
-  .navLink {
-    text-decoration: none;
-    font-weight: bold;
-    color: #007bff;
-    font-size: 16px;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
+.navLink {
+  text-decoration: none;
+  font-weight: bold;
+  color: #007bff;
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-  .navLink:hover {
-    background-color: #007bff;
-    color: white;
-  }
+.navLink:hover {
+  background-color: #007bff;
+  color: white;
+}
 
-  /* Profile Button */
-  .profileButton {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 24px;
-    color: #007bff;
-    align-items: center;
-  }
+/* Profile and Create Button Container */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust the gap as needed */
+}
 
-  .profileButton:hover {
-    color: #0056b3;
-  }
+/* Profile Button */
+.profileButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #007bff;
+  align-items: center;
+}
 
-  /* Profile Dropdown */
-  .profileDropdown {
-    list-style: none;
-    padding: 10px;
-    margin: 0;
-    background-color: #ffffff;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: absolute;
-    top: 50px;
-    right: 20px;
-  }
+.profileButton:hover {
+  color: #0056b3;
+}
 
-  .profileDropdown li {
-    margin-bottom: 10px;
-  }
+/* Profile Dropdown */
+.profileDropdown {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  z-index: 1000;
+}
 
-  .profileDropdown li:last-child {
-    margin-bottom: 0;
-  }
+.profileDropdown li {
+  margin-bottom: 10px;
+}
 
-  .profileDropdown button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
+.profileDropdown li:last-child {
+  margin-bottom: 0;
+}
 
-  .profileDropdown button:hover {
-    background-color: #0056b3;
-  }
+.profileDropdown button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.profileDropdown button:hover {
+  background-color: #0056b3;
+}

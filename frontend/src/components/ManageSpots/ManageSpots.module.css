@@ -1,0 +1,74 @@
+.container {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .title {
+    font-size: 3em;
+    color: #333;
+  }
+
+  .spotsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Maximum 4 spots per row */
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .spotCard {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    position: relative;
+  }
+
+  .spotImage {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+
+  .spotInfo {
+    padding: 8px;
+  }
+
+  .spotLocation,
+  .spotRating,
+  .spotPrice {
+    margin: 4px 0;
+  }
+
+  .buttonContainer {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+  }
+
+  .updateButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .updateButton:hover {
+    background-color: #0056b3;
+  }
+
+  .deleteButton {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .deleteButton:hover {
+    background-color: #c82333;
+  }

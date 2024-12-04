@@ -1,6 +1,7 @@
 import styles from './navigation.module.css';
 import { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom'; // Import NavLink
 import { FaUserCircle } from 'react-icons/fa';
 import * as sessionActions from '../../store/session';
 import OpenModalButton from '../OpenModalButton/OpenModalButton';
@@ -49,6 +50,9 @@ function ProfileButton({ user }) {
             <li>{user.username}</li>
             <li>{user.firstName} {user.lastName}</li>
             <li>{user.email}</li>
+            <li>
+              <NavLink to="/spots/manage" className={styles.navLink}>Manage Spots</NavLink> {/* Add Manage Spots button */}
+            </li>
             <li>
               <button onClick={logout}>Log Out</button>
             </li>
