@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './SpotDetails.module.css'; // Import CSS for styling
+import Reviews from '../Reviews/Reviews';
 
 const SpotDetails = () => {
   const { spotId } = useParams();
@@ -56,6 +57,7 @@ const SpotDetails = () => {
       <div className={styles.ownerInfo}>
         <h2>Hosted by {spot.Owner.firstName} {spot.Owner.lastName}</h2>
       </div>
+      <Reviews />
     </div>
   );
 };

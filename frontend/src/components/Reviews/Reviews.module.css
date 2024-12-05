@@ -1,0 +1,46 @@
+.reviewsContainer {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .starIcon {
+    color: gold;
+    margin-right: 10px;
+  }
+
+  .avgRating {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  .numReviews {
+    font-size: 1.2em;
+    color: #666;
+  }
+
+  .review {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  }
+
+  .review h3 {
+    margin: 0;
+  }
+
+  .reviewDate {
+    font-size: 0.9em;
+    color: #666;
+  }
+
+  .reviewBody {
+    margin: 5px 0;
+  }

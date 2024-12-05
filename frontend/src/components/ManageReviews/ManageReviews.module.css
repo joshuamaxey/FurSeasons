@@ -1,0 +1,25 @@
+.manageReviewsContainer {
+    padding: 20px;
+  }
+
+  .review {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+
+  .review h2 {
+    margin: 0;
+    font-size: 1.5em;
+  }
+
+  .review p {
+    margin: 5px 0;
+  }
+
+  .review button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }

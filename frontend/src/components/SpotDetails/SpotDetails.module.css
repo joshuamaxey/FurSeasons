@@ -1,53 +1,51 @@
-/* SpotDetails.module.css */
 .container {
-    padding: 20px;
-    max-width: 800px;
-    margin: auto;
-  }
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
 
-  .spotName {
-    font-size: 2em;
-    margin-bottom: 10px;
-  }
+.spotName {
+  font-size: 2.5em;
+  margin-bottom: 5px;
+}
 
-  .address {
-    font-size: 1.2em;
-    color: #666;
-    margin-bottom: 20px;
-  }
+.address {
+  font-size: 1.5em;
+  color: #666;
+  margin-bottom: 20px;
+}
 
-  .details {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-bottom: 20px;
-  }
+.images {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
 
-  .description {
-    flex: 1 1 100%;
-    margin-bottom: 10px;
-  }
+.spotImage {
+  width: 100%;
+  max-width: 600px; /* Adjust as needed to fit your design */
+  height: auto;
+  object-fit: cover;
+}
 
-  .price,
-  .rating {
-    flex: 1 1 50%;
-  }
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 20px;
+}
 
-  .images {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
+.description {
+  margin-bottom: 10px;
+}
 
-  .spotImage {
-    width: 100%;
-    max-width: 200px;
-    height: 150px;
-    object-fit: cover;
-  }
+.price,
+.rating {
+  font-size: 1.2em;
+}
 
-  .ownerInfo {
-    margin-top: 20px;
-    font-size: 1.2em;
-  }
+.ownerInfo {
+  margin-top: 20px;
+  font-size: 1.2em;
+}
