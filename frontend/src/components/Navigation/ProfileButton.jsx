@@ -1,7 +1,7 @@
 import styles from './navigation.module.css';
 import { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom'; // Import NavLink
+import { NavLink, useNavigate } from 'react-router-dom'; // Import useNavigate
 import { FaUserCircle } from 'react-icons/fa';
 import * as sessionActions from '../../store/session';
 import OpenModalButton from '../OpenModalButton/OpenModalButton';
@@ -10,6 +10,7 @@ import SignupFormModal from '../SignupFormModal/SignupFormModal';
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate(); // Initialize useNavigate
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
 
@@ -34,7 +35,9 @@ function ProfileButton({ user }) {
 
   const logout = (e) => {
     e.preventDefault();
-    dispatch(sessionActions.logout());
+    dispatch(sessionActions.logout()).then(() => {
+      navigate('/'); // Redirect to homepage after logout
+    });
   };
 
   const ulClassName = `${styles.profileDropdown} ${!showMenu ? styles.hidden : ''}`;

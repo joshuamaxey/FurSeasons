@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import styles from './ManageReviews.module.css';
 import UpdateReviewModal from '../Reviews/UpdateReviewModal';
 import DeleteReviewModal from '../Reviews/DeleteReviewModal';
+import * as sessionActions from '../../store/session';
 
 const ManageReviews = () => {
   const dispatch = useDispatch();
-//   const user = useSelector((state) => state.session.user);
+  const navigate = useNavigate();
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -88,12 +89,20 @@ const ManageReviews = () => {
     }
   };
 
+  const logout = (e) => {
+    e.preventDefault();
+    dispatch(sessionActions.logout()).then(() => {
+      navigate('/'); // Redirect to homepage after logout
+    });
+  };
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
   return (
     <div className={styles.manageReviewsContainer}>
       <h1>Manage Reviews</h1>
+      <button onClick={logout}>Log Out</button> {/* Add logout button */}
       {reviews.length > 0 ? (
         reviews.map(review => (
           <div key={review.id} className={styles.review}>
