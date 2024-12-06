@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import styles from './SpotDetails.module.css'; // Import CSS for styling
+import styles from './SpotDetails.module.css';
 import Reviews from '../Reviews/Reviews';
 
 const SpotDetails = () => {
@@ -19,6 +19,7 @@ const SpotDetails = () => {
         const data = await response.json();
         setSpot(data);
         setLoading(false);
+        console.log('Spot data:', data);
       } catch (error) {
         setError(error.message);
         setLoading(false);
@@ -50,9 +51,23 @@ const SpotDetails = () => {
         <div className={styles.rating}>Average Rating: {spot.avgStarRating} ({spot.numReviews} reviews)</div>
       </div>
       <div className={styles.images}>
-        {spot.SpotImages.map(image => (
-          <img key={image.id} src={image.url} alt={`Spot Image ${image.id}`} className={styles.spotImage} />
-        ))}
+        {spot.SpotImages && spot.SpotImages.length > 0 ? (
+          spot.SpotImages.map((image, index) => (
+            <img
+              key={image.id}
+              src={image.url}
+              alt={`Spot Image ${image.id}`}
+              className={styles.spotImage}
+              onLoad={() => console.log(`Loaded image ${index + 1}: ${image.url}`)}
+              onError={(e) => {
+                console.error(`Failed to load image ${index + 1}: ${image.url}`);
+                console.log('Error event:', e);
+              }}
+            />
+          ))
+        ) : (
+          <div>No images available.</div>
+        )}
       </div>
       <div className={styles.ownerInfo}>
         <h2>Hosted by {spot.Owner.firstName} {spot.Owner.lastName}</h2>
