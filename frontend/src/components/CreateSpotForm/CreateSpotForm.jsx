@@ -22,7 +22,7 @@ const CreateSpotForm = () => {
   useEffect(() => {
     // Fetch CSRF token from server
     const fetchCsrfToken = async () => {
-      const response = await fetch('/api/csrf/restore');
+      const response = await fetch('/api/csrf/restore');  
       const data = await response.json();
       setCsrfToken(data['XSRF-Token']);
     };
