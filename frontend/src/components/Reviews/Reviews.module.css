@@ -45,3 +45,10 @@
   .reviewBody {
     margin: 5px 0;
   }
+
+  .beTheFirst {
+    padding: 15px;
+    padding-left: 5px;
+    margin: 5px;
+    margin-left: 0px;
+  }

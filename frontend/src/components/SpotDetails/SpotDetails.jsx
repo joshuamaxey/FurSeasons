@@ -43,6 +43,15 @@ const SpotDetails = () => {
     return <div>No spot data available.</div>;
   }
 
+  const formatReviewCount = (numReviews) => {
+    if (numReviews === 1) {
+      return '1 review';
+    } else if (numReviews > 1) {
+      return `${numReviews} reviews`;
+    }
+    return 'New';
+  };
+
   return (
     <div className={styles.container}>
       <h1 className={styles.spotName}>{spot.name}</h1>
@@ -76,9 +85,11 @@ const SpotDetails = () => {
           <div className={styles.rating}>
             <FontAwesomeIcon icon={faStar} className={styles.starIcon} />
             <span className={styles.avgRating}>
-              {spot.avgStarRating ? spot.avgStarRating.toFixed(1) : 'No ratings yet'}
+              {spot.avgStarRating ? spot.avgStarRating.toFixed(1) : 'New'}
             </span>
-            <span className={styles.numReviews}>({spot.numReviews} reviews)</span>
+            {spot.numReviews > 0 && (
+              <span className={styles.numReviews}>• ({formatReviewCount(spot.numReviews)})</span>
+            )}
           </div>
         </div>
       </div>

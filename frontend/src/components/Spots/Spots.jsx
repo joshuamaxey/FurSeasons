@@ -19,6 +19,10 @@ const Spots = () => {
     navigate(`/spots/${spotId}`); // Navigate to spot details page
   };
 
+  const formatRating = (rating) => {
+    return rating ? rating.toFixed(1) : 'New';
+  };
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Spots</h1>
@@ -36,7 +40,7 @@ const Spots = () => {
               <img src={spot.previewImage} alt={spot.name} className={styles.spotImage} />
               <div className={styles.spotInfo}>
                 <div className={styles.spotLocation}>{spot.city}, {spot.state}</div>
-                <div className={styles.spotRating}>⭐ {spot.avgRating}</div>
+                <div className={styles.spotRating}>⭐ {formatRating(spot.avgRating)}</div>
                 <div className={styles.spotPrice}>${spot.price} / night</div>
               </div>
             </div>
