@@ -23,7 +23,7 @@ function SignupFormModal() {
       firstName &&
       lastName &&
       password.length >= 6 &&
-      confirmPassword
+      confirmPassword.length >= 6
     ) {
       setIsButtonDisabled(false);
     } else {
@@ -71,8 +71,8 @@ function SignupFormModal() {
             required
             className={styles.input}
           />
+          {errors.email && <p className={styles.error}>{errors.email}</p>}
         </label>
-        {errors.email && <p className={styles.error}>{errors.email}</p>}
         <label className={styles.label}>
           Username
           <input
@@ -82,8 +82,8 @@ function SignupFormModal() {
             required
             className={styles.input}
           />
+          {errors.username && <p className={styles.error}>{errors.username}</p>}
         </label>
-        {errors.username && <p className={styles.error}>{errors.username}</p>}
         <label className={styles.label}>
           First Name
           <input
@@ -93,8 +93,8 @@ function SignupFormModal() {
             required
             className={styles.input}
           />
+          {errors.firstName && <p className={styles.error}>{errors.firstName}</p>}
         </label>
-        {errors.firstName && <p className={styles.error}>{errors.firstName}</p>}
         <label className={styles.label}>
           Last Name
           <input
@@ -104,8 +104,8 @@ function SignupFormModal() {
             required
             className={styles.input}
           />
+          {errors.lastName && <p className={styles.error}>{errors.lastName}</p>}
         </label>
-        {errors.lastName && <p className={styles.error}>{errors.lastName}</p>}
         <label className={styles.label}>
           Password
           <input
@@ -113,10 +113,11 @@ function SignupFormModal() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            minLength={6}
             className={styles.input}
           />
+          {errors.password && <p className={styles.error}>{errors.password}</p>}
         </label>
-        {errors.password && <p className={styles.error}>{errors.password}</p>}
         <label className={styles.label}>
           Confirm Password
           <input
@@ -124,12 +125,13 @@ function SignupFormModal() {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
+            minLength={6}
             className={styles.input}
           />
+          {errors.confirmPassword && (
+            <p className={styles.error}>{errors.confirmPassword}</p>
+          )}
         </label>
-        {errors.confirmPassword && (
-          <p className={styles.error}>{errors.confirmPassword}</p>
-        )}
         <button type="submit" className={styles.button} disabled={isButtonDisabled}>
           Sign Up
         </button>

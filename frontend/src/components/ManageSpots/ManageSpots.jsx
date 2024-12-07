@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCurrentUserSpots } from '../../store/spots'; // Adjust the import path as needed
 import DeleteConfirmationModal from './DeleteConfirmationModal'; // Import the modal
@@ -65,10 +65,29 @@ const ManageSpots = () => {
     <div className={styles.container}>
       <h1 className={styles.title}>Manage Spots</h1>
       {status === 'loading' && <p>Loading...</p>}
-      {status === 'succeeded' && (
+      {status === 'succeeded' && spots.length === 0 && (
+        <div className={styles.noSpotsContainer}>
+          <p>You have no spots.</p>
+          <NavLink to="/spots/new" className={styles.createSpotButton}>
+            Create a New Spot
+          </NavLink>
+        </div>
+      )}
+      {status === 'succeeded' && spots.length > 0 && (
         <div className={styles.spotsGrid}>
           {spots.map((spot) => (
-            <div key={spot.id} className={styles.spotCard}>
+            <div
+              key={spot.id}
+              className={styles.spotCard}
+              onClick={() => navigate(`/spots/${spot.id}`)}
+              role="button"
+              tabIndex={0}
+              onKeyPress={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  navigate(`/spots/${spot.id}`);
+                }
+              }}
+            >
               <img src={spot.previewImage} alt={spot.name} className={styles.spotImage} />
               <div className={styles.spotInfo}>
                 <div className={styles.spotLocation}>{spot.city}, {spot.state}</div>
@@ -76,8 +95,24 @@ const ManageSpots = () => {
                 <div className={styles.spotPrice}>${spot.price} / night</div>
               </div>
               <div className={styles.buttonContainer}>
-                <button className={styles.updateButton} onClick={() => navigate(`/spots/${spot.id}/edit`)}>Update</button>
-                <button className={styles.deleteButton} onClick={() => handleDeleteClick(spot)}>Delete</button>
+                <button
+                  className={styles.updateButton}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigate(`/spots/${spot.id}/edit`);
+                  }}
+                >
+                  Update
+                </button>
+                <button
+                  className={styles.deleteButton}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleDeleteClick(spot);
+                  }}
+                >
+                  Delete
+                </button>
               </div>
             </div>
           ))}

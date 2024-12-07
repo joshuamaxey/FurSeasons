@@ -6,13 +6,17 @@ const CreateReviewModal = ({ onClose, onSubmit }) => {
   const [stars, setStars] = useState(0);
   const [errors, setErrors] = useState([]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (review.length < 10 || stars === 0) {
       setErrors(['Review must be at least 10 characters and a star rating must be selected.']);
       return;
     }
-    onSubmit({ review, stars });
+    try {
+      await onSubmit({ review, stars });
+    } catch (error) {
+      setErrors([error.message]);
+    }
   };
 
   return (
@@ -26,7 +30,7 @@ const CreateReviewModal = ({ onClose, onSubmit }) => {
             ))}
           </ul>
         )}
-        <form onSubmit={handleSubmit} className={styles.form}>
+        <form onSubmit={handleSubmit} className={styles.form} noValidate>
           <textarea
             placeholder="Leave your review here..."
             value={review}
@@ -44,7 +48,7 @@ const CreateReviewModal = ({ onClose, onSubmit }) => {
               </span>
             ))} <p className={styles.stars}>Stars</p>
           </div>
-          <button type="submit" disabled={review.length < 10 || stars === 0}>
+          <button type="submit" disabled={review.length < 10 || stars === 0} className={review.length < 10 || stars === 0 ? styles.disabledButton : ''}>
             Submit Your Review
           </button>
           <button type="button" onClick={onClose}>Cancel</button>

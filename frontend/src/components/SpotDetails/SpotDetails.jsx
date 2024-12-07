@@ -55,7 +55,7 @@ const SpotDetails = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.spotName}>{spot.name}</h1>
-      <div className={styles.address}>{spot.address}, {spot.city}, {spot.state}, {spot.country}</div>
+      <div className={styles.address}>{spot.city}, {spot.state}, {spot.country}</div>
       <div className={styles.images}>
         {spot.SpotImages && spot.SpotImages.length > 0 ? (
           spot.SpotImages.map((image, index) => (
@@ -91,6 +91,9 @@ const SpotDetails = () => {
               <span className={styles.numReviews}>• ({formatReviewCount(spot.numReviews)})</span>
             )}
           </div>
+        <button className={styles.reserveButton} onClick={() => alert('Feature coming soon')}>
+          Reserve
+        </button>
         </div>
       </div>
       <hr></hr>
