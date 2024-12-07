@@ -36,6 +36,7 @@ function ProfileButton({ user }) {
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout()).then(() => {
+      setShowMenu(false); // Close the dropdown menu
       navigate('/'); // Redirect to homepage after logout
     });
   };
@@ -50,14 +51,14 @@ function ProfileButton({ user }) {
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>
+            <li>Hello, {user.firstName}</li>
             <li>{user.username}</li>
-            <li>{user.firstName} {user.lastName}</li>
             <li>{user.email}</li>
             <li>
               <NavLink to="/spots/manage" className={styles.navLink}>Manage Spots</NavLink>
             </li>
             <li>
-              <NavLink to="/reviews/current" className={styles.navLink}>Manage Reviews</NavLink> {/* Add Manage Reviews button */}
+              <NavLink to="/reviews/current" className={styles.navLink}>Manage Reviews</NavLink>
             </li>
             <li>
               <button onClick={logout}>Log Out</button>

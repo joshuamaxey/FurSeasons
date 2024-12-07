@@ -1,6 +1,9 @@
 .container {
+    border: 1px solid black;
     max-width: 800px;
     margin: auto;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 10px;

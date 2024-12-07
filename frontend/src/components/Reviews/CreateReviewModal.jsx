@@ -28,7 +28,7 @@ const CreateReviewModal = ({ onClose, onSubmit }) => {
         )}
         <form onSubmit={handleSubmit} className={styles.form}>
           <textarea
-            placeholder="Share your experience..."
+            placeholder="Leave your review here..."
             value={review}
             onChange={(e) => setReview(e.target.value)}
             required
@@ -42,7 +42,7 @@ const CreateReviewModal = ({ onClose, onSubmit }) => {
               >
                 ★
               </span>
-            ))}
+            ))} <p className={styles.stars}>Stars</p>
           </div>
           <button type="submit" disabled={review.length < 10 || stars === 0}>
             Submit Your Review

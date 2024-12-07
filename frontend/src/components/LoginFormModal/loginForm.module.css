@@ -1,43 +1,67 @@
+/* Existing styles */
+
 .heading {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
+  font-size: 24px;
+  margin-bottom: 20px;
+}
 
-  .form {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center the form */
-  }
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the form */
+}
 
-  .label {
-    width: 100%;
-    margin-bottom: 10px;
-  }
+.label {
+  width: 100%;
+  margin-bottom: 10px;
+}
 
-  .input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
+.input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 
-  .error {
-    color: red;
-    margin-top: 5px;
-  }
+.error {
+  color: red;
+  margin-top: 5px;
+}
 
-  .button {
-    width: 100%;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    margin-top: 10px;
-  }
+.button {
+  width: 100%;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
 
-  .button:hover {
-    background-color: #0056b3;
-  }
+.button:hover {
+  background-color: #0056b3;
+}
+
+/* New styles for disabled button */
+.button:disabled {
+  background-color: #ccc; /* Gray color */
+  cursor: not-allowed;
+}
+
+/* New styles for the demo button */
+.demoButton {
+  width: 100%;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #28a745;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.demoButton:hover {
+  background-color: #218838;
+}

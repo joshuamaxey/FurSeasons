@@ -63,7 +63,7 @@ const ManageSpots = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Manage Your Spots</h1>
+      <h1 className={styles.title}>Manage Spots</h1>
       {status === 'loading' && <p>Loading...</p>}
       {status === 'succeeded' && (
         <div className={styles.spotsGrid}>

@@ -117,7 +117,7 @@ const UpdateSpot = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Update Spot</h1>
+      <h1>Update your Spot</h1>
       <form onSubmit={handleSubmit} className={styles.form}>
         {errors.length > 0 && (
           <ul className={styles.errors}>
@@ -143,11 +143,11 @@ const UpdateSpot = () => {
           <input type="text" name="state" value={formData.state} onChange={handleChange} required />
         </label>
         <label>
-          Latitude (optional)
+          Latitude
           <input type="text" name="lat" value={formData.lat} onChange={handleChange} />
         </label>
         <label>
-          Longitude (optional)
+          Longitude
           <input type="text" name="lng" value={formData.lng} onChange={handleChange} />
         </label>
         <label>
@@ -168,7 +168,7 @@ const UpdateSpot = () => {
             <input type="text" name={`image-${idx}`} value={formData.imageUrls[idx]} onChange={handleChange} />
           </label>
         ))}
-        <button type="submit">Update Spot</button>
+        <button type="submit">Update your Spot</button>
       </form>
     </div>
   );

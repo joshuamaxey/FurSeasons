@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './SpotDetails.module.css';
 import Reviews from '../Reviews/Reviews';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 const SpotDetails = () => {
   const { spotId } = useParams();
@@ -45,11 +47,6 @@ const SpotDetails = () => {
     <div className={styles.container}>
       <h1 className={styles.spotName}>{spot.name}</h1>
       <div className={styles.address}>{spot.address}, {spot.city}, {spot.state}, {spot.country}</div>
-      <div className={styles.details}>
-        <div className={styles.description}>{spot.description}</div>
-        <div className={styles.price}>Price: ${spot.price} per night</div>
-        <div className={styles.rating}>Average Rating: {spot.avgStarRating} ({spot.numReviews} reviews)</div>
-      </div>
       <div className={styles.images}>
         {spot.SpotImages && spot.SpotImages.length > 0 ? (
           spot.SpotImages.map((image, index) => (
@@ -70,8 +67,22 @@ const SpotDetails = () => {
         )}
       </div>
       <div className={styles.ownerInfo}>
-        <h2>Hosted by {spot.Owner.firstName} {spot.Owner.lastName}</h2>
+        <div className={styles.details}>
+          <h2 id={styles.host}>Hosted by {spot.Owner.firstName} {spot.Owner.lastName}</h2>
+          <div className={styles.description}>{spot.description}</div>
+        </div>
+        <div className={styles.priceAndRating}>
+          <div className={styles.price}>${spot.price} night</div>
+          <div className={styles.rating}>
+            <FontAwesomeIcon icon={faStar} className={styles.starIcon} />
+            <span className={styles.avgRating}>
+              {spot.avgStarRating ? spot.avgStarRating.toFixed(1) : 'No ratings yet'}
+            </span>
+            <span className={styles.numReviews}>({spot.numReviews} reviews)</span>
+          </div>
+        </div>
       </div>
+      <hr></hr>
       <Reviews />
     </div>
   );

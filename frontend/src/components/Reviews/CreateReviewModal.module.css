@@ -50,3 +50,7 @@
     padding: 10px;
     cursor: pointer;
   }
+
+  .stars {
+    font-weight: bold;
+  }

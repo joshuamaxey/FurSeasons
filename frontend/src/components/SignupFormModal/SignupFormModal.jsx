@@ -1,5 +1,5 @@
 import styles from "./signupForm.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import * as sessionActions from "../../store/session";
@@ -13,7 +13,23 @@ function SignupFormModal() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const { closeModal } = useModal();
+
+  useEffect(() => {
+    if (
+      email &&
+      username.length >= 4 &&
+      firstName &&
+      lastName &&
+      password.length >= 6 &&
+      confirmPassword
+    ) {
+      setIsButtonDisabled(false);
+    } else {
+      setIsButtonDisabled(true);
+    }
+  }, [email, username, firstName, lastName, password, confirmPassword]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -114,7 +130,7 @@ function SignupFormModal() {
         {errors.confirmPassword && (
           <p className={styles.error}>{errors.confirmPassword}</p>
         )}
-        <button type="submit" className={styles.button}>
+        <button type="submit" className={styles.button} disabled={isButtonDisabled}>
           Sign Up
         </button>
       </form>

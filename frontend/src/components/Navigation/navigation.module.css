@@ -103,3 +103,8 @@
 .profileDropdown button:hover {
   background-color: #0056b3;
 }
+
+.navIcon {
+  width: 50px; /* Adjust the width as needed */
+  height: 50px;
+}
