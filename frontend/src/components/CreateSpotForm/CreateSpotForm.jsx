@@ -140,7 +140,7 @@ const CreateSpotForm = () => {
 
           if (!imageResponse.ok) {
             console.error(`Error adding image ${i + 1}:`, await imageResponse.json());
-            // Optionally, handle the error (e.g., show a message to the user)
+            // Optionally, handle the error
           }
         }
       }

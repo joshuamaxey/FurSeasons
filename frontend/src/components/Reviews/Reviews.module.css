@@ -52,3 +52,20 @@
     margin: 5px;
     margin-left: 0px;
   }
+
+  /* extra styling */
+
+  .updateButton {
+    border: none;
+    color: white;
+    border-radius: 5px;
+    background-color: #007bff;
+    margin-left: 0px;
+  }
+
+  .deleteButton {
+    border: none;
+    color: white;
+    border-radius: 5px;
+    background-color: #dc3545;
+  }
