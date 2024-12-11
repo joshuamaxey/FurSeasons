@@ -36,6 +36,11 @@
 }
 
 .spotInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: left;
+  /* border: 2px solid red; */
   padding: 8px;
   flex-grow: 1;
 }
@@ -44,4 +49,11 @@
 .spotRating,
 .spotPrice {
   margin: 4px 0;
+}
+
+.spotRating {
+  width: 100%;
+  /* border: 2px solid blue; */
+  display: flex;
+  justify-content: right;
 }

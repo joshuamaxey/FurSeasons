@@ -34,11 +34,13 @@ const ManageSpots = () => {
     fetchCsrfToken();
   }, [dispatch, sessionUser, navigate]);
 
+  // When we hit the delete button, show the modal to confirm the deletion
   const handleDeleteClick = (spot) => {
     setSpotToDelete(spot);
     setShowDeleteModal(true);
   };
 
+  // If the user confirms the deletion, send a DELETE request to the backend route to delete the spot by its spotId.
   const handleDeleteConfirm = async () => {
     try {
       const response = await fetch(`/api/spots/${spotToDelete.id}`, {
@@ -64,7 +66,9 @@ const ManageSpots = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Manage Spots</h1>
+      {/* If we are still loading the spots, show loading screen */}
       {status === 'loading' && <p>Loading...</p>}
+      {/* If the spots have been successfully fetched and there are no spots owned by the current user, show the 'Create a New Spot' button */}
       {status === 'succeeded' && spots.length === 0 && (
         <div className={styles.noSpotsContainer}>
           <p>You have no spots.</p>
@@ -73,6 +77,7 @@ const ManageSpots = () => {
           </NavLink>
         </div>
       )}
+      {/* Otherwise, if the spots are loaded and the user does own spots, map through them and display them as tiles */}
       {status === 'succeeded' && spots.length > 0 && (
         <div className={styles.spotsGrid}>
           {spots.map((spot) => (

@@ -16,6 +16,7 @@ function SignupFormModal() {
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const { closeModal } = useModal();
 
+  // Here we check to make sure that none of the form fields are empty and that they are the correct number of characters. If either of these conditions is false, we disable the submit button.
   useEffect(() => {
     if (
       email &&
@@ -31,6 +32,7 @@ function SignupFormModal() {
     }
   }, [email, username, firstName, lastName, password, confirmPassword]);
 
+  // We dispatch the signup action with the information in the form, then close the modal. If there are errors, we keep track of them and will display them in our component later.
   const handleSubmit = (e) => {
     e.preventDefault();
     if (password === confirmPassword) {
@@ -52,6 +54,7 @@ function SignupFormModal() {
           }
         });
     }
+    // Forgot to also set validation for the confirmPassword box, so that's what this code is doing.
     return setErrors({
       confirmPassword:
         "Confirm Password field must be the same as the Password field",

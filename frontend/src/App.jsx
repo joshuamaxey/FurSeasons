@@ -12,9 +12,10 @@ import ManageReviews from "./components/ManageReviews/ManageReviews";
 
 function Layout() {
   const dispatch = useDispatch();
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false); // Here we define the isLoaded slice of state.
 
   useEffect(() => {
+    // Inside our useEffect, we try to restore the user session. This loads our session data either with a logged-in user, or with no active user. Once we have restored the session data, we set isLoaded = true.
     dispatch(sessionActions.restoreUser()).then(() => {
       setIsLoaded(true);
     });
@@ -22,7 +23,9 @@ function Layout() {
 
   return (
     <>
+      {/* We pass isLoaded into Navigation as a prop */}
       <Navigation isLoaded={isLoaded} />
+      {/* Once isLoaded is true (after the user session has been restored), we render the Outlet component. */}
       {isLoaded && <Outlet />}
     </>
   );

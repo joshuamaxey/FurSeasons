@@ -1,9 +1,6 @@
 // Action Types
 const FETCH_SPOTS = 'spots/FETCH_SPOTS';
 const FETCH_CURRENT_USER_SPOTS = 'spots/FETCH_CURRENT_USER_SPOTS';
-// const CREATE_SPOT = 'spots/CREATE_SPOT';
-// const UPDATE_SPOT = 'spots/UPDATE_SPOT';
-// const DELETE_SPOT = 'spots/DELETE_SPOT';
 const SET_STATUS = 'spots/SET_STATUS';
 const SET_ERROR = 'spots/SET_ERROR';
 
@@ -27,21 +24,6 @@ const setErrorAction = (error) => ({
   type: SET_ERROR,
   error,
 });
-
-// const createSpotAction = (spot) => ({
-//   type: CREATE_SPOT,
-//   spot,
-// });
-
-// const updateSpotAction = (spot) => ({
-//   type: UPDATE_SPOT,
-//   spot,
-// });
-
-// const deleteSpotAction = (id) => ({
-//   type: DELETE_SPOT,
-//   id,
-// });
 
 // Thunks
 export const fetchSpots = () => async (dispatch) => {
@@ -98,20 +80,6 @@ export default function spotsReducer(state = initialState, action) {
       return { ...state, status: action.status };
     case SET_ERROR:
       return { ...state, error: action.error };
-    // case CREATE_SPOT:
-    //   return { ...state, spots: [...state.spots, action.spot] };
-    // case UPDATE_SPOT:
-    //   return {
-    //     ...state,
-    //     spots: state.spots.map((spot) =>
-    //       spot.id === action.spot.id ? action.spot : spot
-    //     ),
-    //   };
-    // case DELETE_SPOT:
-    //   return {
-    //     ...state,
-    //     spots: state.spots.filter((spot) => spot.id !== action.id),
-    //   };
     default:
       return state;
   }

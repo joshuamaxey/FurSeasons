@@ -21,30 +21,54 @@
   padding-left: 0px;
 }
 
-/* .images {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 20px;
-  margin-bottom: 20px;
-  border: 10px solid red;
-} */
-
 .images {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  grid-template-rows: 1fr;
+  grid-template-columns: 4fr 2fr 2fr;
+  grid-template-rows: 250px 250px;
   gap: 20px;
   margin-bottom: 20px;
-  /* border: 10px solid red; */
+  /* border: 2px solid red; */
+  gap: 2.5px;
 }
 
 .spotImage {
   width: 100%;
-  max-width: 600px; /* Adjust as needed to fit your design */
-  height: auto;
+  max-width: 600px;
+  height: 100%;
   object-fit: cover;
-  /* border: 10px solid blue; */
-  border: 3px solid black;
+  border: 2px solid black;
+}
+
+.spotImage-0 {
+  /* border: 10px solid black; */
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.spotImage-1 {
+  /* border: 10px solid green; */
+  grid-column-start: 2;
+  grid-row-start: 1;
+}
+
+.spotImage-2 {
+  /* border: 10px solid yellow; */
+  grid-column-start: 3;
+  grid-row-start: 1;
+}
+
+.spotImage-3 {
+  /* border: 10px solid orange; */
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+.spotImage-4 {
+  /* border: 10px solid purple; */
+  grid-column-start: 3;
+  grid-row-start: 2;
 }
 
 /* ! MAJOR SECTION */
@@ -54,6 +78,7 @@
   /* border: 2px solid red; */
   margin-top: 20px;
   font-size: 1.2em;
+  margin-bottom: 20px;
 }
 
 /* ^ SECTION */
@@ -79,9 +104,12 @@
 
 .priceAndRating {
   display: grid;
+  justify-self: right;
+  width: 75%;
+  display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr 1fr;
-  /* border: 3px solid black; */
+  border: 2px solid black;
   align-items: center;
   justify-items: center;
   border-radius: 10px;
@@ -90,7 +118,7 @@
 .price,
 .rating {
   font-size: 1.2em;
-  padding: 10px;
+  padding-top: 10px;
   padding-left: 0px;
 }
 
@@ -99,6 +127,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  width: 100%
 }
 
 .starIcon {
@@ -115,8 +144,11 @@
 }
 
 .reserveButton {
+  grid-column-start: 1;
+  grid-column-end: 3;
   width: 75%;
-  margin-top: 20px;
+  margin-top: 5px;
+  margin-bottom: 20px;
   padding: 10px 20px;
   background-color: #007bff;
   color: white;

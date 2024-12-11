@@ -6,6 +6,7 @@ const CreateReviewModal = ({ onClose, onSubmit }) => {
   const [stars, setStars] = useState(0);
   const [errors, setErrors] = useState([]);
 
+  // On submission of the create review form, we check to make sure the review and stars pass our validations. If not, throw the error below.
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (review.length < 10 || stars === 0) {

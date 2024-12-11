@@ -1,5 +1,6 @@
-import styles from './DeleteConfirmationModal.module.css'; // Create and adjust CSS as needed
+import styles from './DeleteConfirmationModal.module.css';
 
+// Simple modal for deletion of a spot, passing in 'onClose' and 'onConfirm' from ManageSpot as props. 
 const DeleteConfirmationModal = ({ onClose, onConfirm }) => {
   return (
     <div className={styles.modalBackground}>

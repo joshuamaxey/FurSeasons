@@ -12,6 +12,7 @@ function LoginFormModal() {
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const { closeModal } = useModal();
 
+  // Here we check to see if the credential and password are the required lengths. If not, we disable the button until they are.
   useEffect(() => {
     if (credential.length >= 4 && password.length >= 6) {
       setIsButtonDisabled(false);
@@ -20,6 +21,7 @@ function LoginFormModal() {
     }
   }, [credential, password]);
 
+  // Here we try to login using the provided credential and password. If the login is successful, we close the modal. If not, we set the errors and will display them on the form.
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors({});
@@ -33,6 +35,7 @@ function LoginFormModal() {
       });
   };
 
+  // Next we define a function that will log the user in as the demo user. We'll use this later in our 'Log in as Demo User' button.
   const handleDemoLogin = (e) => {
     e.preventDefault();
     setErrors({});

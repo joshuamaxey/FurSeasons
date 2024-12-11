@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import styles from './updateSpotForm.module.css'; // Create and adjust CSS as needed
+import styles from './updateSpotForm.module.css';
 
+// Here we create the form containing the fields necessary to update the spot and set them to empty strings by default
 const UpdateSpot = () => {
   const { spotId } = useParams();
   const navigate = useNavigate();
@@ -20,8 +21,8 @@ const UpdateSpot = () => {
   const [errors, setErrors] = useState([]);
   const [csrfToken, setCsrfToken] = useState(''); // State for CSRF token
 
+  // Fetch the CSRF token from the server
   useEffect(() => {
-    // Fetch CSRF token from server
     const fetchCsrfToken = async () => {
       const response = await fetch('/api/csrf/restore');
       const data = await response.json();
@@ -38,6 +39,7 @@ const UpdateSpot = () => {
           throw new Error('Failed to fetch spot details');
         }
         const data = await response.json();
+        // After we fetch the details of the current spot, populate the form with the spot'd current data
         setFormData({
           address: data.address,
           city: data.city,
@@ -58,6 +60,7 @@ const UpdateSpot = () => {
     fetchSpotDetails();
   }, [spotId]);
 
+  // Handle any changes that occur on the spot form in any of the fields. If the change occurs in one of the fields for an image, update the image field by it's index. Otherwise update the field directly
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name.startsWith('image')) {
@@ -78,6 +81,8 @@ const UpdateSpot = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Here we create a variable called updatedSpot with the updated information from the form.
     const { address, city, state, country, lat, lng, name, description, price } = formData;
 
     const updatedSpot = {
@@ -92,12 +97,13 @@ const UpdateSpot = () => {
       price: parseFloat(price),
     };
 
+    // Then we make a PUT request to the backend route using the spots spotId in order to update the record for the spot in the database.
     try {
       const response = await fetch(`/api/spots/${spotId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-          'X-CSRF-Token': csrfToken, // Include the CSRF token
+          'X-CSRF-Token': csrfToken, // MAKE SURE TO INCLUDE CSRF TOKEN OR THIS WILL NOT WORK.
         },
         body: JSON.stringify(updatedSpot),
       });
@@ -108,6 +114,7 @@ const UpdateSpot = () => {
         return;
       }
 
+      // After we've udpated the spot, navigate automatically to that spot's spotDetails page
       navigate(`/spots/${spotId}`);
     } catch (error) {
       setErrors([error.message]);

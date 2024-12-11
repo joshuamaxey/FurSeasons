@@ -1,5 +1,6 @@
 import styles from './DeleteReviewModal.module.css';
 
+// Simple modal for deleting a review, passing in 'onClose' and 'onConfirm' from ManageReviews
 const DeleteReviewModal = ({ onClose, onDelete }) => {
   return (
     <div className={styles.modalBackground}>
