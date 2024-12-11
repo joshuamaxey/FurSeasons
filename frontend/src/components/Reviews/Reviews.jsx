@@ -139,7 +139,17 @@ const Reviews = () => {
   // Sort reviews to display newest first
   const sortedReviews = reviews.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // Sort the reivews in order from oldest (bottom) to newest (top)
 
-  const showBeTheFirst = user && !userHasReviewed && !isOwner && reviews.length === 0; // If the current user is not the owner of the spot, and if they have not already posted a review, and there are no reviews, we will use this variable to show 'Be the first to leave a review' instead of empty space. 
+  const showBeTheFirst = user && !userHasReviewed && !isOwner && reviews.length === 0; // If the current user is not the owner of the spot, and if they have not already posted a review, and there are no reviews, we will use this variable to show 'Be the first to leave a review' instead of empty space.
+
+  // Helper function to format the review count display
+  const formatReviewCount = (numReviews) => {
+    if (numReviews === 1) {
+      return '1 review';
+    } else if (numReviews > 1) {
+      return `${numReviews} reviews`;
+    }
+    return 'No reviews';
+  };
 
   return (
     <div className={styles.reviewsContainer}>
@@ -148,7 +158,7 @@ const Reviews = () => {
         <span className={styles.avgRating}>
           {reviews.length > 0 ? (reviews.reduce((acc, review) => acc + review.stars, 0) / reviews.length).toFixed(1) : 'No ratings yet'} •
         </span>
-        <span className={styles.numReviews}>({reviews.length} reviews)</span>
+        <span className={styles.numReviews}>({formatReviewCount(reviews.length)})</span>
       </div>
       {user && !userHasReviewed && !isOwner && (
         <button className={styles.reviewButton} onClick={() => setShowCreateModal(true)}>
