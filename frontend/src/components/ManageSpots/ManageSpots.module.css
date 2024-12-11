@@ -1,6 +1,7 @@
 .container {
   text-align: center;
   margin-top: 50px;
+  padding: 0px 15px;
 }
 
 .title {
@@ -30,6 +31,11 @@
 }
 
 .spotInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: left;
+  /* border: 2px solid red; */
   padding: 8px;
 }
 
@@ -38,6 +44,20 @@
 .spotPrice {
   margin: 4px 0;
 }
+
+.spotRating {
+  display: flex;
+  width: 100%;
+  justify-content: right;
+  /* border: 2px solid purple; */
+}
+
+hr {
+  justify-self: center;
+  width: 75%;
+}
+
+/* Section */
 
 .buttonContainer {
   display: flex;

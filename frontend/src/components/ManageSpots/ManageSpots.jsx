@@ -63,6 +63,10 @@ const ManageSpots = () => {
     setSpotToDelete(null);
   };
 
+  const formatRating = (rating) => {
+    return rating ? rating.toFixed(1) : 'New';
+  };
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Manage Spots</h1>
@@ -87,6 +91,7 @@ const ManageSpots = () => {
               onClick={() => navigate(`/spots/${spot.id}`)}
               role="button"
               tabIndex={0}
+              style={{ cursor: 'pointer' }} // Change pointer to cursor on hover
               onKeyPress={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   navigate(`/spots/${spot.id}`);
@@ -96,9 +101,10 @@ const ManageSpots = () => {
               <img src={spot.previewImage} alt={spot.name} className={styles.spotImage} />
               <div className={styles.spotInfo}>
                 <div className={styles.spotLocation}>{spot.city}, {spot.state}</div>
-                <div className={styles.spotRating}>⭐ {spot.avgRating}</div>
-                <div className={styles.spotPrice}>${spot.price} / night</div>
+                <div className={styles.spotRating}>⭐ {formatRating(spot.avgRating)}</div>
+                <div className={styles.spotPrice}><strong>${spot.price}</strong> / night</div>
               </div>
+              <hr></hr>
               <div className={styles.buttonContainer}>
                 <button
                   className={styles.updateButton}

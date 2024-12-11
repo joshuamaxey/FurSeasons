@@ -1,10 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from './CreateReviewModal.module.css';
 
 const CreateReviewModal = ({ onClose, onSubmit }) => {
   const [review, setReview] = useState('');
   const [stars, setStars] = useState(0);
   const [errors, setErrors] = useState([]);
+  const modalRef = useRef();
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        onClose();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [onClose]);
 
   // On submission of the create review form, we check to make sure the review and stars pass our validations. If not, throw the error below.
   const handleSubmit = async (e) => {
@@ -22,7 +36,7 @@ const CreateReviewModal = ({ onClose, onSubmit }) => {
 
   return (
     <div className={styles.modalBackground}>
-      <div className={styles.modalContainer}>
+      <div className={styles.modalContainer} ref={modalRef}>
         <h2>How was your stay?</h2>
         {errors.length > 0 && (
           <ul className={styles.errors}>
