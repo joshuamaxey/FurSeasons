@@ -98,7 +98,7 @@ const ManageReviews = () => {
             <h2>{review.Spot?.name || 'Loading...'}</h2>
             <p>{new Date(review.createdAt).toLocaleDateString()}</p>
             <p>{review.review}</p>
-            <button
+            <button className={styles.updateButton}
               onClick={() => {
                 setReviewToUpdate(review);
                 setShowUpdateModal(true);
@@ -106,7 +106,7 @@ const ManageReviews = () => {
             >
               Update
             </button>
-            <button
+            <button className={styles.deleteButton}
               onClick={() => {
                 setReviewToDelete(review);
                 setShowDeleteModal(true);

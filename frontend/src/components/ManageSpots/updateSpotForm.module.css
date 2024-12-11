@@ -69,3 +69,10 @@
   .errors li {
     margin-bottom: 5px;
   }
+
+  .error {
+    color: red;
+    font-size: medium;
+    margin-top: 4px;
+    padding: 5px;
+  }
