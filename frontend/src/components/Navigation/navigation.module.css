@@ -37,9 +37,11 @@
   font-weight: bold;
   color: #007bff;
   font-size: 16px;
-  padding: 5px 10px;
+  padding: 0px 10px;
   border-radius: 5px;
   transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex;
+  justify-self: left;
 }
 
 .navLink:hover {
@@ -107,4 +109,27 @@
 .navIcon {
   width: 50px; /* Adjust the width as needed */
   height: 50px;
+}
+
+/* additional styling */
+
+.greeting {
+  justify-self: left;
+  padding: 0px 10px;
+}
+
+hr {
+  margin: 5px;
+}
+
+.logout {
+  display: flex;
+  justify-self: center;
+  margin-top: 10px;
+}
+
+.email {
+  display: flex;
+  justify-self: left;
+  padding: 0px 10px;
 }
