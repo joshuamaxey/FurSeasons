@@ -69,3 +69,10 @@
     border-radius: 5px;
     background-color: #dc3545;
   }
+
+  .reviewButton {
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+  }
