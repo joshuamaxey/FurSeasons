@@ -3,6 +3,7 @@ const FETCH_SPOTS = 'spots/FETCH_SPOTS';
 const FETCH_CURRENT_USER_SPOTS = 'spots/FETCH_CURRENT_USER_SPOTS';
 const SET_STATUS = 'spots/SET_STATUS';
 const SET_ERROR = 'spots/SET_ERROR';
+const FETCH_SPOT_DETAILS = 'spots/FETCH_SPOT_DETAILS';
 
 // Action Creators
 const fetchSpotsAction = (spots) => ({
@@ -23,6 +24,12 @@ const setStatusAction = (status) => ({
 const setErrorAction = (error) => ({
   type: SET_ERROR,
   error,
+});
+
+// Action Creators
+const fetchSpotDetailsAction = (spot) => ({
+  type: FETCH_SPOT_DETAILS,
+  spot,
 });
 
 // Thunks
@@ -62,6 +69,23 @@ export const fetchCurrentUserSpots = () => async (dispatch) => {
   }
 };
 
+// Thunks
+export const fetchSpotDetails = (spotId) => async (dispatch) => {
+  dispatch(setStatusAction('loading'));
+  try {
+    const response = await fetch(`/api/spots/${spotId}`);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    dispatch(fetchSpotDetailsAction(data));
+    dispatch(setStatusAction('succeeded'));
+  } catch (err) {
+    dispatch(setErrorAction(err.message));
+    dispatch(setStatusAction('failed'));
+  }
+};
+
 // Reducer
 const initialState = {
   spots: [],
@@ -76,6 +100,8 @@ export default function spotsReducer(state = initialState, action) {
       return { ...state, spots: action.spots };
     case FETCH_CURRENT_USER_SPOTS:
       return { ...state, currentUserSpots: action.spots };
+    case FETCH_SPOT_DETAILS:
+      return { ...state, spotDetails: { ...state.spotDetails, [action.spot.id]: action.spot }};
     case SET_STATUS:
       return { ...state, status: action.status };
     case SET_ERROR:
