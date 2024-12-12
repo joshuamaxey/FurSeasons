@@ -2,10 +2,12 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux'; 
 import thunk from 'redux-thunk'; // thunk middleware allows us to handle asynchronous actions in Redux
 import sessionReducer from './session'; // reducer to handle session-related state
 import spotsReducer from './spots';
+import reviewsReducer from './reviews';
 
 const rootReducer = combineReducers({ // our rootReducer combines multiple reducers into a single reducer function.
   session: sessionReducer,
-  spots: spotsReducer
+  spots: spotsReducer,
+  reviews: reviewsReducer
 });
 
 let enhancer;
