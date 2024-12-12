@@ -146,7 +146,7 @@ const Reviews = () => {
             <p className={styles.reviewBody}>{review.review}</p>
             {review.userId === user?.id && (
               <>
-                <button
+                <button className={styles.updateButton}
                   onClick={() => {
                     setReviewToUpdate(review);
                     setShowUpdateModal(true);
@@ -154,7 +154,7 @@ const Reviews = () => {
                 >
                   Update
                 </button>
-                <button onClick={() => {
+                <button className={styles.deleteButton} onClick={() => {
                   setReviewToDelete(review);
                   setShowDeleteModal(true);
                 }}>Delete</button>
