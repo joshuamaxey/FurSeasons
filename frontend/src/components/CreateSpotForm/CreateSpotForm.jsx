@@ -18,6 +18,7 @@ const CreateSpotForm = () => {
     imageUrls: ['', '', '', '', ''],
   });
   const [errors, setErrors] = useState({});
+  //! Refactor: use the csrfFetch function from csrf.js in the Redux store to fetch csrf token 
   const [csrfToken, setCsrfToken] = useState('');
 
   useEffect(() => {

@@ -2,11 +2,11 @@ import styles from './navigation.module.css';
 import { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom'; // Import useNavigate
-import { FaUserCircle } from 'react-icons/fa';
 import * as sessionActions from '../../store/session';
 import OpenModalButton from '../OpenModalButton/OpenModalButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal/SignupFormModal';
+import catIcon2 from "../../../src/cat_icon_2.jpg" // Import the new cat icon
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -43,13 +43,13 @@ function ProfileButton({ user }) {
     });
   };
 
-  // Here we apply the 'profileDropdown' className to our ul elements below for consistent styling. Then, we conditionally apply the 'hidden' class to the dropdown menu based on the value of showMenu. If showMenu is true, hidden is not applied. If it is false, then we apply the hidden class to hide the dropwon menu.
+  // Here we apply the 'profileDropdown' className to our ul elements below for consistent styling. Then, we conditionally apply the 'hidden' class to the dropdown menu based on the value of showMenu. If showMenu is true, hidden is not applied. If it is false, then we apply the hidden class to hide the dropdown menu.
   const ulClassName = `${styles.profileDropdown} ${!showMenu ? styles.hidden : ''}`;
 
   return (
     <div className={styles.profileButtonContainer}>
       <button onClick={toggleMenu} className={styles.profileButton}>
-        <FaUserCircle />
+        <img src={catIcon2} alt="Profile" className={styles.profileIcon} />
       </button>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (

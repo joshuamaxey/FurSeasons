@@ -49,6 +49,27 @@
   color: white;
 }
 
+/* ! HOME BUTTON */
+
+.navLink1 {
+  text-decoration: none;
+  font-weight: bold;
+  color: #007bff;
+  font-size: 16px;
+  padding: 0px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex;
+  justify-self: left;
+  border-radius: 50px;
+}
+
+.navLink1:hover {
+  border: 2px solid blue;
+}
+
+/* ! END HOME BUTTON */
+
 /* Profile and Create Button Container */
 .actions {
   display: flex;
@@ -62,13 +83,33 @@
   border: none;
   cursor: pointer;
   font-size: 24px;
+  /* color: #007bff; */
+  align-items: center;
+}
+
+/* ! PROFILE ICON */
+
+.profileIcon {
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
   color: #007bff;
   align-items: center;
+}
+
+.profileIcon:hover {
+  border: 2px solid blue;
 }
 
 .profileButton:hover {
   color: #0056b3;
 }
+
+/* ! END PROFILE BUTTON */
 
 /* Profile Dropdown */
 .profileDropdown {
@@ -80,7 +121,7 @@
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: absolute;
-  top: 50px;
+  top:  75px;
   right: 20px;
   z-index: 1000;
 }
@@ -109,6 +150,7 @@
 .navIcon {
   width: 50px; /* Adjust the width as needed */
   height: 50px;
+  border-radius: 25px;
 }
 
 /* additional styling */

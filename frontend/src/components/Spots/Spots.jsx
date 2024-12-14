@@ -14,7 +14,7 @@ const Spots = () => {
 
   // This useEffect will fetch the spots data when the component mounts
   useEffect(() => {
-    dispatch(fetchSpots()); // dispatch the fetch the spots data from the backend.
+    dispatch(fetchSpots()); // dispatch the action to fetch the spots from the backend.
   }, [dispatch]);
 
   // When we click on a certain tile, navigate to that spot's detail page

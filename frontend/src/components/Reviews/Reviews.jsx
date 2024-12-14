@@ -24,22 +24,23 @@ const Reviews = () => {
   const [csrfToken, setCsrfToken] = useState('');
 
   const user = useSelector((state) => state.session.user); // Access user data from the session slice
-  const spots = useSelector((state) => state.spots.spots); // Fetch the spots array from the Redux state
+  const spots = useSelector((state) => state.spots.spots); // Fetch the spots array from the spots slice
 
   useEffect(() => {
     const fetchCsrfToken = async () => {
       const response = await fetch('/api/csrf/restore');
       const data = await response.json();
+      // console.log(data);
       setCsrfToken(data['XSRF-Token']);
     };
 
     dispatch(fetchSpots()); // Fetch spots data
-    dispatch(fetchReviewsBySpotId(spotId));
+    dispatch(fetchReviewsBySpotId(spotId)); // spotId from route parameters
     fetchCsrfToken();
     setLoading(false);
   }, [dispatch, spotId]);
 
-  const spot = spots.find(spot => spot.id === parseInt(spotId)); // Find the specific spot by its spotId
+  const spot = spots.find(spot => spot.id === parseInt(spotId));
 
   const handleReviewSubmit = async (reviewData) => {
     try {
@@ -54,7 +55,7 @@ const Reviews = () => {
 
       if (!response.ok) throw new Error('Network response was not ok');
 
-      await dispatch(fetchReviewsBySpotId(spotId)); // Fetch updated reviews after submitting a new review
+      await dispatch(fetchReviewsBySpotId(spotId)); // Fetch updated reviews after submitting a new review.
       setShowCreateModal(false);
     } catch (error) {
       console.error('Failed to submit review:', error);

@@ -8,11 +8,13 @@ import catIcon from "../../../src/cat_icon.png"
 function Navigation({ isLoaded }) { // Navigation is a function component that takes a single prop: isLoaded
   const sessionUser = useSelector((state) => state.session.user); // We use the useSelector hook from React Redux to access the curent user (sessionUser) from the state
 
+  // console.log(sessionUser);
+
   return ( // We return the navigation bar.
     <nav className={styles.navContainer}>
       <ul className={styles.navLinks}>
         <li className={styles.navItem}>
-          <NavLink to="/" className={styles.navLink}>
+          <NavLink to="/" className={styles.navLink1}>
             {/* Our home button navigates to the homepage, and is rendered as our cat button */}
             <img src={catIcon} alt="Home" className={styles.navIcon} id={styles.icon} />
           </NavLink>

@@ -22,6 +22,7 @@ const UpdateSpot = () => {
   const [csrfToken, setCsrfToken] = useState(''); // State for CSRF token
 
   // Fetch the CSRF token from the server
+  //! Consider refactoring to use the csrfFetch function that is already defined in csrf.js in the Redux store
   useEffect(() => {
     const fetchCsrfToken = async () => {
       const response = await fetch('/api/csrf/restore');
@@ -64,7 +65,7 @@ const UpdateSpot = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name.startsWith('image')) {
-      const index = parseInt(name.split('-')[1], 10);
+      const index = parseInt(name.split('-')[1], 10); // use parseInt to get the index of the image from its name
       const newImageUrls = [...formData.imageUrls];
       newImageUrls[index] = value;
       setFormData((prevState) => ({

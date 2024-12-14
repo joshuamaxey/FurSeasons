@@ -22,6 +22,7 @@ const SpotDetails = () => {
     : 'New';
   const numReviews = reviews.length;
 
+  //! Refactor: We should be using redux instead of local state to fetch spots, see Spots.jsx
   useEffect(() => {
     const fetchSpotDetails = async () => {
       try {
@@ -70,6 +71,7 @@ const SpotDetails = () => {
       <div className={styles.images}>
         {spot.SpotImages && spot.SpotImages.length > 0 ? (
           spot.SpotImages.map((image, index) => (
+            // Map through the spotImages for the current spot and assign each spotImage a unique className based on its index within the array! Then we can use CSS grid to put each image exactly where we want it.
             <img
               key={image.id}
               className={classNames(styles.spotImage, styles[`spotImage-${index}`])}

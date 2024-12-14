@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import * as sessionActions from "../../store/session";
 
+//! Note for this component: How to show error messages for form fields when the button remains disabled until form fields are correct?
+
 function SignupFormModal() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
