@@ -37,8 +37,12 @@ function SignupFormModal() {
   // We dispatch the signup action with the information in the form, then close the modal. If there are errors, we keep track of them and will display them in our component later.
   const handleSubmit = (e) => {
     e.preventDefault();
-    if ((password === confirmPassword) && (password.length >= 6) && (username.length >= 4)) {
-      setErrors({});
+    const newErrors = {};
+    if (password !== confirmPassword) newErrors.confirmPassword = "Passwords must match";
+    if (username.length < 4) newErrors.username = "Username must be at least 4 characters";
+    if (password.length < 6) newErrors.password = "Password must be at least 6 characters";
+    if (Object.keys(newErrors).length > 0) setErrors(newErrors);
+      setErrors({})
       return dispatch(
         sessionActions.signup({
           email,
@@ -46,25 +50,15 @@ function SignupFormModal() {
           firstName,
           lastName,
           password,
-        })
-      )
-        .then(closeModal)
-        .catch(async (res) => {
+        })).then(closeModal)
+          .catch(async (res) => {
           const data = await res.json();
-          console.log(data);
-          if (data?.errors) {
-            setErrors(data.errors);
-          }
-        });
-    }
-    // Forgot to also set validation for the confirmPassword box, so that's what this code is doing.
-    return setErrors({
-      password: "Password must be at least six characters",
-      confirmPassword:
-        "Confirm Password field must be the same as the Password field",
-      username: "Username must be at least 4 characters",
-      email: "Invalid email"
-    });
+            if (data?.errors) {
+              if (data.errors?.email) newErrors.email = "Email already exists"
+              if (data.errors?.username) newErrors.username = "Username already exists"
+              setErrors(newErrors);
+            }
+        })
   };
 
   return (
