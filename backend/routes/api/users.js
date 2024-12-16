@@ -45,7 +45,7 @@ const validateSignup = [
 router.post(
   '/',
     validateSignup,
-    async (req, res, next) => {
+    async (req, res, _next) => { // use "_<argument>" syntax for unused arguments
       const { email, password, username, firstName, lastName } = req.body;
 
       const existingUser = await User.findOne({ where: { email } });

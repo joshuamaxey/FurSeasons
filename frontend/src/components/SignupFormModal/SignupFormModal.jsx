@@ -39,9 +39,12 @@ function SignupFormModal() {
     e.preventDefault();
     const newErrors = {};
     if (password !== confirmPassword) newErrors.confirmPassword = "Passwords must match";
-    if (username.length < 4) newErrors.username = "Username must be at least 4 characters";
-    if (password.length < 6) newErrors.password = "Password must be at least 6 characters";
-    if (Object.keys(newErrors).length > 0) setErrors(newErrors);
+    // if (username.length < 4) newErrors.username = "Username must be at least 4 characters";
+    // if (password.length < 6) newErrors.password = "Password must be at least 6 characters";
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors)
+      return;
+    }
       setErrors({})
       return dispatch(
         sessionActions.signup({
