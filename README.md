@@ -1,4 +1,4 @@
-# `RestQuest`
+# `Bed and Breakfast`
 
 ## Database Schema Design
 
