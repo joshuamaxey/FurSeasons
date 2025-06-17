@@ -1,4 +1,6 @@
-# `RestQuest`
+# `Fur Seasons`
+
+Fur Seasons is a simple, cat-themed replica of the Airbnb application. The backend of our application is built using Node.js and Express in JavaScript, our frontend is built using React.js, and we use Redux.js for state management. Locally, we built and tested our database and application using SQLite3. In production, we used a PostgreSQL database.
 
 ## Database Schema Design
 
